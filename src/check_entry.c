@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:30:18 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/03 20:49:49 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/06 17:38:25 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,16 @@ void	ft_invalid_entry(char **argv)
 			if (!ft_isdigit(*temp) && *temp != '-' && *temp != '+'
 				&& *temp != ' ')
 				ft_error(INVALID_ARG, NULL);
+			if (ft_isdigit(*temp) == 1
+				&& (*(temp + 1) != ' '
+					&& !ft_isdigit(*(temp + 1))
+					&& *(temp + 1) != '\0'))
+				ft_error(INT_ERROR, NULL);
+			if ((*temp == '-' || *temp == '+') && !ft_isdigit(*(temp + 1)))
+				ft_error(INVALID_ARG, NULL);
 			temp++;
 		}
 		argv++;
-	}
-}
-
-void	ft_repetead_entry(t_ps **lst)
-{
-	t_ps	*aux;
-	t_ps	*aux_2;
-
-	aux = *lst;
-	aux_2 = *lst;
-	aux = aux->next;
-	while (aux_2->next->tail == 0)
-	{
-		while (aux->tail == 0)
-		{
-			if (aux_2->content == aux->content)
-				ft_error(REPETEAD_ARG, lst);
-			aux = aux->next;
-		}
-		aux_2 = aux_2->next;
-		aux = aux_2->next;
 	}
 }
 
@@ -58,13 +44,29 @@ void	ft_empty_arg(char **argv)
 	aux = NULL;
 	aux = ft_split(*argv, ' ');
 	if (!aux)
-		return ;
+		ft_error(INVALID_ARG, NULL);
 	if (!*aux)
 	{
 		ft_split_destroyer(aux);
 		free(aux);
-		ft_error(EMPTY_ARG, NULL);
+		ft_error(INVALID_ARG, NULL);
 	}
 	ft_split_destroyer(aux);
 	free(aux);
+}
+
+char	*ft_rebuild_entry(char **argv)
+{
+	char	*aux;
+
+	aux = ft_strdup(*argv);
+	aux = ft_strjoin_free_s1(aux, " ");
+	argv++ ;
+	while (*argv)
+	{
+		aux = ft_strjoin_free_s1(aux, *argv);
+		aux = ft_strjoin_free_s1(aux, " ");
+		argv++ ;
+	}
+	return (aux);
 }

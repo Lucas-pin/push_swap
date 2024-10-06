@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:27:03 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/03 20:38:37 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/04 18:40:09 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 int	main( int argc, char **argv)
 {
+	char	*entry;
 	t_ps	lst;
 
+	entry = NULL;
 	ft_memset(&lst, 0, sizeof(lst));
-	ft_printf("lst.next: %p\n", lst.next);
-	ft_printf("lst.prev: %p\n", lst.prev);
-	ft_printf("lst.content: %i\n", lst.content);
-	ft_printf("lst.tail: %i\n", lst.tail);
 	if (argc <= 1)
 		return (0);
 	else
 	{
 		argv++ ;
-		ft_entry_orchestor(argc, argv);
-		ft_lst_orchestor(argc, argv, &lst);
+		entry = ft_entry_orchestor(argc, argv);
+		ft_lst_orchestor(entry, &lst);
 	}
 	return (0);
 }

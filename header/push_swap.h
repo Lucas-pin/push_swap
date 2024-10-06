@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/03 20:50:09 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/06 17:42:08 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_ps
 {
 	int				tail;
-	int				content;
+	long			content;
 	struct s_ps		*next;
 	struct s_ps		*prev;
 }					t_ps;
@@ -33,9 +33,13 @@ typedef enum e_entry_error
 	INT_ERROR
 }	t_entry_error;
 
-void	ft_entry_orchestor(int argc, char **argv);
+// orchestor.c
 
-void	ft_lst_orchestor(int argc, char **argv, t_ps *lst);
+char	*ft_entry_orchestor(int argc, char **argv);
+
+void	ft_lst_orchestor(char *entry, t_ps *lst);
+
+// errors.c
 
 void	ft_error(int error, t_ps **lst);
 
@@ -45,17 +49,17 @@ void	ft_invalid_entry(char **argv);
 
 void	ft_empty_arg(char **argv);
 
-void	ft_repetead_entry(t_ps **lst);
+char	*ft_rebuild_entry(char **argv);
 
-// parser.c
+// list_init.c
 
-void	ft_lst_init(char **matrix, t_ps **lst);
+void	ft_lst_init(char *entry, t_ps **lst);
 
-int		ft_ps_atoi(char *s, t_ps *lst);
+void	ft_lst_creator(t_ps **lst, long content);
 
 // linked_list_utils.c
 
-t_ps	*ft_ps_new(int content);
+t_ps	*ft_ps_new(long content);
 
 void	ft_ps_add_front(t_ps **lst, t_ps *new);
 
@@ -65,14 +69,20 @@ int		ft_ps_size(t_ps *lst);
 
 void	ft_ps_destroy(t_ps **lst);
 
-// ps_utils.c
+// check_list.c
 
-void	ft_lst_creator(t_ps **lst, int content);
-
-void	ft_lst_init(char **matrix, t_ps **lst);
-
-void	ft_print_list(t_ps *lst);
+void	ft_check_list(t_ps *lst);
 
 int		ft_check_sort(t_ps *lst);
+
+int		ft_check_number(t_ps *lst);
+
+void	ft_repetead_number(t_ps **lst);
+
+// ps_utils.c
+
+long	ft_ps_atoi(char *s);
+
+void	ft_print_list(t_ps *lst);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:01:58 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/03 20:58:13 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/04 19:54:16 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-t_ps	*ft_ps_new(int content)
+t_ps	*ft_ps_new(long content)
 {
 	t_ps	*nodo;
 
