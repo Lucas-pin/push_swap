@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:27:03 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/04 18:40:09 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:00:59 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main( int argc, char **argv)
 {
 	char	*entry;
 	t_ps	lst;
+	t_ps	*stack;
 
 	entry = NULL;
 	ft_memset(&lst, 0, sizeof(lst));
@@ -25,7 +26,8 @@ int	main( int argc, char **argv)
 	{
 		argv++ ;
 		entry = ft_entry_orchestor(argc, argv);
-		ft_lst_orchestor(entry, &lst);
+		stack = ft_lst_orchestor(entry, &lst);
+		ft_mov_orchestor(stack);
 	}
 	return (0);
 }

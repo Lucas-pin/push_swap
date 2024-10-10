@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/06 17:42:08 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:27:38 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ typedef enum e_entry_error
 
 char	*ft_entry_orchestor(int argc, char **argv);
 
-void	ft_lst_orchestor(char *entry, t_ps *lst);
+t_ps	*ft_lst_orchestor(char *entry, t_ps *lst);
+
+void	ft_mov_orchestor(t_ps *stack);
 
 // errors.c
 
@@ -84,5 +86,19 @@ void	ft_repetead_number(t_ps **lst);
 long	ft_ps_atoi(char *s);
 
 void	ft_print_list(t_ps *lst);
+
+void	ft_find_bottom(t_ps **stack);
+
+// swap.c
+
+void	ft_swap(t_ps **stack);
+
+// sw_moves.c
+
+void	sa(t_ps **stack_a);
+
+void	sb(t_ps **stack_b);
+
+void	ss(t_ps **stack_a, t_ps **stack_b);
 
 #endif

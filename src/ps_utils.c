@@ -6,11 +6,23 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:54:22 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/04 20:06:58 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:19:45 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
+
+void	ft_find_bottom(t_ps **stack)
+{
+	t_ps	*aux;
+
+	aux = *stack;
+	if (!aux)
+		return ;
+	while (aux->tail != 1)
+		aux = aux->next;
+	*stack = aux;
+}
 
 void	ft_print_list(t_ps *lst)
 {

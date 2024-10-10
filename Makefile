@@ -6,14 +6,14 @@
 #    By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:22:27 by lpin              #+#    #+#              #
-#    Updated: 2024/10/04 18:43:14 by lpin             ###   ########.fr        #
+#    Updated: 2024/10/10 20:29:05 by lpin             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 SRCS = src/push_swap.c src/orchestor.c src/check_entry.c src/check_list.c src/errors.c \
-		src/linked_list_utils.c src/ps_utils.c src/list_init.c
+		src/linked_list_utils.c src/ps_utils.c src/list_init.c src/swap.c src/sw_moves.c
 LIBFT = ./libft/libft.a
 OBJS = $(SRCS:.c=.o)
 
