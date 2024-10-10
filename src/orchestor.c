@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:34:02 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/10 20:29:42 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:58:06 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_mov_orchestor(t_ps *stack)
 	ft_printf("-------original-------\n");
 	ft_print_list(stack);
 	ft_printf("-------modified-------\n");
-	sb(&stack);
+	ra(&stack);
 	ft_print_list(stack);
 	ft_printf("----------------------\n");
 	ft_ps_destroy(&stack);

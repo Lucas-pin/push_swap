@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/10 20:27:38 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:59:20 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,13 @@ void	sa(t_ps **stack_a);
 void	sb(t_ps **stack_b);
 
 void	ss(t_ps **stack_a, t_ps **stack_b);
+
+// rotate.c
+
+void	ft_rotate(t_ps **stack);
+
+// rt_moves.c
+
+void	ra(t_ps **stack_a);
 
 #endif
