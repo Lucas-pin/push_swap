@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/10 20:59:20 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/10 21:17:42 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_print_list(t_ps *lst);
 
 void	ft_find_bottom(t_ps **stack);
 
-// swap.c
+// ft_swap.c
 
 void	ft_swap(t_ps **stack);
 
@@ -101,12 +101,28 @@ void	sb(t_ps **stack_b);
 
 void	ss(t_ps **stack_a, t_ps **stack_b);
 
-// rotate.c
+// ft_rotate.c
 
 void	ft_rotate(t_ps **stack);
 
 // rt_moves.c
 
 void	ra(t_ps **stack_a);
+
+void	rb(t_ps **stack_a);
+
+void	rr(t_ps **stack_a, t_ps **stack_b);
+
+// ft_reverse_rotate.c
+
+void	ft_reverse_rotate(t_ps **stack);
+
+// rrt_moves.c
+
+void	rra(t_ps **stack_a);
+
+void	rrb(t_ps **stack_b);
+
+void	rrr(t_ps **stack_a, t_ps **stack_b);
 
 #endif
