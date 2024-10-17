@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:16:28 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/04 19:56:48 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 19:16:38 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_lst_creator(t_ps **lst, long content)
 	(*lst)->next = *lst;
 	(*lst)->prev = *lst;
 	(*lst)->tail = 1;
+	ft_memset((void *)(&(*lst)->metadata), 0, sizeof(t_algorithm));
 }
 
 void	ft_lst_init(char *entry, t_ps **lst)

@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/11 19:30:42 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 19:12:39 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,20 @@
 # include "../libft/libft.h"
 # include "../libft/ft_printf.h"
 
+typedef struct s_algorithm
+{
+	int				index;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
+}					t_algorithm;
+
 typedef struct s_ps
 {
 	int				tail;
 	long			content;
+	t_algorithm		metadata;
 	struct s_ps		*next;
 	struct s_ps		*prev;
 }					t_ps;
