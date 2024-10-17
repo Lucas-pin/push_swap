@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/10 21:17:42 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/11 19:30:42 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ char	*ft_entry_orchestor(int argc, char **argv);
 
 t_ps	*ft_lst_orchestor(char *entry, t_ps *lst);
 
-void	ft_mov_orchestor(t_ps *stack);
-
+void	ft_mov_orchestor(t_ps *stack_a, t_ps *stack_b);
 // errors.c
 
 void	ft_error(int error, t_ps **lst);
@@ -124,5 +123,11 @@ void	rra(t_ps **stack_a);
 void	rrb(t_ps **stack_b);
 
 void	rrr(t_ps **stack_a, t_ps **stack_b);
+
+// rrt_moves.c
+
+void	ft_push(t_ps **stack_src, t_ps **stack_dst);
+
+void	pb(t_ps **stack_a, t_ps **stack_b);
 
 #endif

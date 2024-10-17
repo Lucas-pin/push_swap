@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:54:22 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/10 20:19:45 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/11 19:41:23 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	ft_print_list(t_ps *lst)
 	}
 	else if (aux->next == aux)
 	{
-		ft_printf("%i\n", aux->content);
+		ft_printf("Hay un único nodo\n");
+		printf("content: %li\n", aux->content);
+		printf("tail: %i\n", aux->tail);
 		return ;
 	}
 	printf("content: %li\n", aux->content);

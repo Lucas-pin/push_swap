@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:01:58 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/04 19:54:16 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 18:53:16 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_ps	*ft_ps_new(long content)
 
 void	ft_ps_add_front(t_ps **lst, t_ps *new)
 {
+	t_ps	*last;
+
 	if (!new)
 		return ;
 	else if (!*lst)
@@ -40,12 +42,13 @@ void	ft_ps_add_front(t_ps **lst, t_ps *new)
 	}
 	else
 	{
+		last = (*lst)->prev;
 		(*lst)->tail = 0;
 		new->tail = 1;
 		new->next = *lst;
-		new->prev = (*lst)->prev;
+		new->prev = last;
+		last->next = new;
 		(*lst)->prev = new;
-		(*lst)->prev->next = new;
 		*lst = new;
 	}
 }
@@ -92,11 +95,9 @@ void	ft_ps_destroy(t_ps **lst)
 {
 	t_ps	*aux;
 
-	if ((*lst)->tail != 1)
-	{
-		while ((*lst)->tail != 1)
-			*lst = (*lst)->next;
-	}
+	if (!lst || !*lst)
+		return ;
+	ft_find_bottom(lst);
 	(*lst)->prev->next = NULL;
 	(*lst)->prev = NULL;
 	while (*lst)
