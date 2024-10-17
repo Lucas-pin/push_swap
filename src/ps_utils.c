@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:54:22 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/11 19:41:23 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 20:57:04 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	ft_find_bottom(t_ps **stack)
 	while (aux->tail != 1)
 		aux = aux->next;
 	*stack = aux;
+}
+void	ft_print_node(t_ps **lst)
+{
+	ft_printf("Content: %d, Index: %d, Pos: %d\n", (*lst)->content, (*lst)->metadata.index, (*lst)->metadata.pos);
 }
 
 void	ft_print_list(t_ps *lst)

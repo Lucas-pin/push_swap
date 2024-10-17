@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:01:58 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/17 18:53:16 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 19:47:19 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,22 +91,18 @@ int	ft_ps_size(t_ps *lst)
 	return (size);
 }
 
-void	ft_ps_destroy(t_ps **lst)
+void	ft_ps_iter(t_ps **lst, void (*f) (t_ps **))
 {
 	t_ps	*aux;
-
-	if (!lst || !*lst)
+	if (!lst || !*lst || !f)
 		return ;
 	ft_find_bottom(lst);
-	(*lst)->prev->next = NULL;
-	(*lst)->prev = NULL;
-	while (*lst)
+	aux = *lst;
+	f(&aux);
+	aux = aux->next;
+	while (aux->tail != 1)
 	{
-		aux = (*lst)->next;
-		(*lst)->prev = NULL;
-		(*lst)->next = NULL;
-		free(*lst);
-		*lst = NULL;
-		*lst = aux;
+		f(&aux);
+		aux = aux->next;
 	}
 }

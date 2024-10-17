@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:34:02 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/17 18:51:38 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 20:54:44 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,9 @@ t_ps	*ft_lst_orchestor(char *entry, t_ps *lst)
 
 void	ft_mov_orchestor(t_ps *stack_a, t_ps *stack_b)
 {
-	ft_printf("-------stack_a--------\n");
-	ft_print_list(stack_a);
-	ft_printf("-------stack_b--------\n");
-	ft_print_list(stack_b);
-	ft_printf("----------------------\n");
-	pb(&stack_a, &stack_b);
-	ft_printf("----------------------\n");
-	ft_printf("-------stack_a mod----\n");
-	ft_print_list(stack_a);
-	ft_printf("-------stack_b mod----\n");
-	ft_print_list(stack_b);
-	ft_printf("----------------------\n");
-	pb(&stack_a, &stack_b);
-	ft_printf("----------------------\n");
-	ft_printf("-------stack_a mod----\n");
-	ft_print_list(stack_a);
-	ft_printf("-------stack_b mod----\n");
-	ft_print_list(stack_b);
-	ft_printf("----------------------\n");
-	pb(&stack_a, &stack_b);
-	ft_printf("----------------------\n");
-	ft_printf("-------stack_a mod----\n");
-	ft_print_list(stack_a);
-	ft_printf("-------stack_b mod----\n");
-	ft_print_list(stack_b);
+	ft_ps_iter(&stack_a, ft_position);
+	ft_ps_iter(&stack_a, ft_index);
+	ft_ps_iter(&stack_a, ft_print_node);
 	ft_ps_destroy(&stack_a);
 	ft_ps_destroy(&stack_b);
 }

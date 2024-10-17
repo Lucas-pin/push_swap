@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/17 19:12:39 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/17 19:59:50 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ void	ft_ps_add_back(t_ps **lst, t_ps *new);
 
 int		ft_ps_size(t_ps *lst);
 
+void	ft_ps_iter(t_ps **lst, void (*f) (t_ps **));
+
+// ft_ps_destroy.c
+
 void	ft_ps_destroy(t_ps **lst);
 
 // check_list.c
@@ -93,6 +97,8 @@ void	ft_repetead_number(t_ps **lst);
 // ps_utils.c
 
 long	ft_ps_atoi(char *s);
+
+void	ft_print_node(t_ps **lst);
 
 void	ft_print_list(t_ps *lst);
 
@@ -139,5 +145,11 @@ void	rrr(t_ps **stack_a, t_ps **stack_b);
 void	ft_push(t_ps **stack_src, t_ps **stack_dst);
 
 void	pb(t_ps **stack_a, t_ps **stack_b);
+
+// ft_metadata.c
+
+void	ft_index(t_ps **stack);
+
+void	ft_position(t_ps **stack);
 
 #endif
