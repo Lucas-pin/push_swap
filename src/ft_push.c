@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 18:31:20 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/17 18:45:22 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/20 18:16:13 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ t_ps	*ft_isolate(t_ps **stack_src)
 
 void	ft_push(t_ps **stack_src, t_ps **stack_dst)
 {
-
 	if (!stack_src || !*stack_src)
 		return ;
 	ft_find_bottom(stack_src);

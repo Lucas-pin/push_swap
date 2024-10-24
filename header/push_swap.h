@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/17 19:59:50 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/24 21:07:37 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_algorithm
 	int				target_pos;
 	int				cost_a;
 	int				cost_b;
+	int				cost_abs;
 }					t_algorithm;
 
 typedef struct s_ps
@@ -79,6 +80,9 @@ void	ft_ps_add_back(t_ps **lst, t_ps *new);
 int		ft_ps_size(t_ps *lst);
 
 void	ft_ps_iter(t_ps **lst, void (*f) (t_ps **));
+
+void	ft_ps_iter_b(t_ps **stack_a, t_ps **stack_b, void (*f) (t_ps **, t_ps **));
+
 
 // ft_ps_destroy.c
 
@@ -151,5 +155,9 @@ void	pb(t_ps **stack_a, t_ps **stack_b);
 void	ft_index(t_ps **stack);
 
 void	ft_position(t_ps **stack);
+
+void	ft_target_pos(t_ps **stack_a, t_ps **stack_b);
+
+void	ft_cost(t_ps **stack_a, t_ps **stack_b);
 
 #endif
