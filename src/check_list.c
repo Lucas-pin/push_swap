@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 17:32:40 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/06 17:35:49 by lpin             ###   ########.fr       */
+/*   Updated: 2024/10/31 18:54:22 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	ft_check_sort(t_ps *lst)
 	t_ps	*aux;
 
 	aux = lst;
+	ft_find_bottom(&lst);
 	while (aux->next->tail == 0)
 	{
 		if (aux->content > aux->next->content)
