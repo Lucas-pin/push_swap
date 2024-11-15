@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 19:13:53 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/31 19:42:53 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/16 00:15:55 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@ void	ft_swap(t_ps **stack)
 	if (ft_ps_size(*stack) <= 1)
 		return ;
 	ft_find_bottom(stack);
+	third_node = NULL;
 	first_node = *stack;
 	second_node = first_node->next;
-	third_node = second_node->next;
-	third_node->prev = first_node;
+	if (ft_ps_size(*stack) >= 3)
+	{
+		third_node = second_node->next;
+		third_node->prev = first_node;
+	}
 	first_node->prev->next = second_node;
 	first_node->next = second_node->next;
 	second_node->prev = first_node->prev;

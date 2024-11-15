@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:48:40 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/10 19:49:58 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/15 23:25:28 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	ft_sgle_moves(t_ps **stack_a, t_ps **stack_b, int *cost_a, int *cost_b)
 		else if (*cost_a < 0)
 		{
 			rra(stack_a);
-			*cost_a = *cost_a + 1;
+			(*cost_a)++;
 		}
 		if (*cost_b > 0)
 		{

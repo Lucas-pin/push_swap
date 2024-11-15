@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_estimate.c                                      :+:      :+:    :+:   */
+/*   estimate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:14:36 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/29 19:58:04 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/15 23:23:05 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,12 @@ void	ft_absolute(t_ps **stack_b)
 	if (cost_a == cost_b)
 		(*stack_b)->metadata.cost_abs = cost_a;
 	else if ((cost_a < 0 && cost_b < 0))
-		if (cost_a > cost_b)
+		if (cost_a < cost_b)
 			(*stack_b)->metadata.cost_abs = cost_a;
 		else
 			(*stack_b)->metadata.cost_abs = cost_b;
 	else if (cost_a > 0 && cost_b > 0)
-		if (cost_a < cost_b)
+		if (cost_a > cost_b)
 			(*stack_b)->metadata.cost_abs = cost_a;
 		else
 			(*stack_b)->metadata.cost_abs = cost_b;
