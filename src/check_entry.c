@@ -6,7 +6,7 @@
 /*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:30:18 by lpin              #+#    #+#             */
-/*   Updated: 2024/10/06 17:38:25 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/19 20:58:14 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_invalid_entry(char **argv)
 				&& (*(temp + 1) != ' '
 					&& !ft_isdigit(*(temp + 1))
 					&& *(temp + 1) != '\0'))
-				ft_error(INT_ERROR, NULL);
+				ft_error(INVALID_ARG, NULL);
 			if ((*temp == '-' || *temp == '+') && !ft_isdigit(*(temp + 1)))
 				ft_error(INVALID_ARG, NULL);
 			temp++;
@@ -49,6 +49,7 @@ void	ft_empty_arg(char **argv)
 	{
 		ft_split_destroyer(aux);
 		free(aux);
+		free(*argv);
 		ft_error(INVALID_ARG, NULL);
 	}
 	ft_split_destroyer(aux);
