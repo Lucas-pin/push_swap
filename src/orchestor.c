@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   orchestor.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:34:02 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/19 21:01:54 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/24 19:09:28 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_ps	*ft_lst_orchestor(char *entry, t_ps *lst)
 void	ft_mov_orchestor(t_ps *stack_a, t_ps *stack_b)
 {
 	ft_ps_iter(&stack_a, ft_index);
-	if (ft_ps_size(stack_a) > 3)	
+	if (ft_ps_size(stack_a) > 3)
 		ft_move_stack_a(&stack_a, &stack_b);
 	ft_sort_three(&stack_a);
 	ft_metadata(&stack_a, &stack_b);

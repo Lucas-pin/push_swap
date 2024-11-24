@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   estimate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:14:36 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/15 23:23:05 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/24 19:23:42 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ void	ft_target_pos(t_ps **stack_a, t_ps **stack_b)
 	while (--size > 0)
 	{
 		if (aux_a->content > (*stack_b)->content && (target == NULL
-			|| aux_a->metadata.index < target->metadata.index))
+				|| aux_a->metadata.index < target->metadata.index))
 			target = aux_a;
 		else if (target_aux == NULL
 			|| target_aux->metadata.index > aux_a->metadata.index)
 			target_aux = aux_a;
 		aux_a = aux_a->next;
 	}
-	if (target ==  NULL)
+	if (target == NULL)
 		(*stack_b)->metadata.target_pos = target_aux->metadata.pos;
 	else
 		(*stack_b)->metadata.target_pos = target->metadata.pos;
@@ -73,7 +73,7 @@ void	ft_cost(t_ps **stack_a, t_ps **stack_b)
 {
 	int		size_a;
 	int		size_b;
-	
+
 	if (!stack_a || !*stack_a || !stack_b || !*stack_b)
 		return ;
 	size_a = ft_ps_size(*stack_a);
@@ -81,13 +81,13 @@ void	ft_cost(t_ps **stack_a, t_ps **stack_b)
 	if ((*stack_b)->metadata.target_pos <= (size_a / 2))
 		(*stack_b)->metadata.cost_a = (*stack_b)->metadata.target_pos;
 	else
-		(*stack_b)->metadata.cost_a =
-			((size_a - (*stack_b)->metadata.target_pos) * (-1));
+		(*stack_b)->metadata.cost_a
+			= ((size_a - (*stack_b)->metadata.target_pos) * (-1));
 	if ((*stack_b)->metadata.pos <= (size_b / 2))
 		(*stack_b)->metadata.cost_b = (*stack_b)->metadata.pos;
 	else
-		(*stack_b)->metadata.cost_b =
-			((size_b - (*stack_b)->metadata.pos) * (-1));
+		(*stack_b)->metadata.cost_b
+			= ((size_b - (*stack_b)->metadata.pos) * (-1));
 }
 
 void	ft_absolute(t_ps **stack_b)
@@ -102,19 +102,19 @@ void	ft_absolute(t_ps **stack_b)
 	if (cost_a == cost_b)
 		(*stack_b)->metadata.cost_abs = cost_a;
 	else if ((cost_a < 0 && cost_b < 0))
+	{
 		if (cost_a < cost_b)
 			(*stack_b)->metadata.cost_abs = cost_a;
 		else
 			(*stack_b)->metadata.cost_abs = cost_b;
+	}
 	else if (cost_a > 0 && cost_b > 0)
+	{
 		if (cost_a > cost_b)
 			(*stack_b)->metadata.cost_abs = cost_a;
 		else
 			(*stack_b)->metadata.cost_abs = cost_b;
-	else if (cost_a < 0)
-		(*stack_b)->metadata.cost_abs = (cost_a * (-1)) + cost_b;
+	}
 	else
-		(*stack_b)->metadata.cost_abs = cost_a + (cost_b * (-1));
-	if ((*stack_b)->metadata.cost_abs < 0)
-		(*stack_b)->metadata.cost_abs = (*stack_b)->metadata.cost_abs * -1;
+		(*stack_b)->metadata.cost_abs = ft_abs(cost_a) + ft_abs(cost_b);
 }

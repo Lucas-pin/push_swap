@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:46:12 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/04 19:26:35 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/24 19:25:16 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ int		ft_ps_size(t_ps *lst);
 
 void	ft_ps_iter(t_ps **lst, void (*f) (t_ps **));
 
-void	ft_ps_iter_b(t_ps **stack_a, t_ps **stack_b, void (*f) (t_ps **, t_ps **));
-
+void	ft_ps_iter_b(t_ps **stack_a, t_ps **stack_b,
+			void (*f) (t_ps **, t_ps **));
 
 // ft_ps_destroy.c
 
@@ -172,13 +172,15 @@ void	ft_metadata(t_ps **stack_a, t_ps **stack_b);
 
 // algorithm.c
 
-void	ft_move_stack_a(t_ps **stack_a, t_ps **stack_b);
-
 void	ft_sort_three(t_ps **stack_a);
 
 void	ft_sort_big(t_ps **stack_a, t_ps **stack_b);
 
+void	ft_final_order(t_ps **stack_a);
+
 // algorithm_utils.c
+
+void	ft_move_stack_a(t_ps **stack_a, t_ps **stack_b);
 
 t_ps	*ft_cheapest(t_ps **stack_b);
 
@@ -186,6 +188,6 @@ void	ft_db_moves(t_ps **stack_a, t_ps **stack_b, int *cost_a, int *cost_b);
 
 void	ft_sgle_moves(t_ps **stack_a, t_ps **stack_b, int *cost_a, int *cost_b);
 
-void	ft_final_order(t_ps **stack_a);
+int		ft_abs(int value);
 
 #endif

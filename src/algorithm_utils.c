@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:48:40 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/15 23:25:28 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/24 19:24:53 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_move_stack_a(t_ps **stack_a, t_ps **stack_b)
 {
-	int	i;
-	int	size;
-	int	max_index;
+	int		i;
+	int		size;
+	int		max_index;
 	t_ps	*aux;
 
 	i = 0;
@@ -102,28 +102,9 @@ void	ft_sgle_moves(t_ps **stack_a, t_ps **stack_b, int *cost_a, int *cost_b)
 	}
 }
 
-void	ft_final_order(t_ps **stack_a)
+int	ft_abs(int value)
 {
-	t_ps	*low_index;
-	t_ps	*aux;
-
-	aux = *stack_a;
-	low_index = aux;
-	aux = aux->next;
-	while (aux != *stack_a)
-	{
-		if (low_index->metadata.index > aux->metadata.index)
-			low_index = aux;
-		aux = aux->next;
-	}
-	if (low_index->metadata.pos < (ft_ps_size(*stack_a) / 2))
-	{
-		while (ft_check_sort(*stack_a) != 1)
-			ra(stack_a);
-	}
-	else
-	{
-		while (ft_check_sort(*stack_a) != 1)
-			rra(stack_a);
-	}
+	if (value < 0)
+		return (-value);
+	return (value);
 }

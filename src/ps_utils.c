@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:54:22 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/04 22:03:27 by lpin             ###   ########.fr       */
+/*   Updated: 2024/11/24 19:26:30 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_print_node(t_ps **lst)
 {
 	if (!lst || !*lst)
 		return ;
-	ft_printf("Content: %d, Index: %d, Pos: %d, target_pos: %d, cost_a: %d, cost_b: %d, cost_abs: %d\n",
+	ft_printf("Content: %d, Index: %d, Pos: %d, target_pos: %d, cost_a: %d, "
+		"cost_b: %d, cost_abs: %d\n",
 		(*lst)->content, (*lst)->metadata.index,
 		(*lst)->metadata.pos, (*lst)->metadata.target_pos,
 		(*lst)->metadata.cost_a, (*lst)->metadata.cost_b,
