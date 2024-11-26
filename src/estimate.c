@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   estimate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:14:36 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/24 19:23:42 by lucas            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:36:44 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,15 @@ void	ft_absolute(t_ps **stack_b)
 	cost_a = (*stack_b)->metadata.cost_a;
 	cost_b = (*stack_b)->metadata.cost_b;
 	if (cost_a == cost_b)
+		(*stack_b)->metadata.cost_abs = ft_abs(cost_a);
+	else if ((cost_a < 0 && cost_b < 0) && cost_a < cost_b)
+		(*stack_b)->metadata.cost_abs = ft_abs(cost_a);
+	else if ((cost_a < 0 && cost_b < 0) && cost_b < cost_a)
+		(*stack_b)->metadata.cost_abs = ft_abs(cost_b);
+	else if ((cost_a > 0 && cost_b > 0) && cost_a > cost_b)
 		(*stack_b)->metadata.cost_abs = cost_a;
-	else if ((cost_a < 0 && cost_b < 0))
-	{
-		if (cost_a < cost_b)
-			(*stack_b)->metadata.cost_abs = cost_a;
-		else
-			(*stack_b)->metadata.cost_abs = cost_b;
-	}
-	else if (cost_a > 0 && cost_b > 0)
-	{
-		if (cost_a > cost_b)
-			(*stack_b)->metadata.cost_abs = cost_a;
-		else
-			(*stack_b)->metadata.cost_abs = cost_b;
-	}
+	else if ((cost_a > 0 && cost_b > 0) && cost_b > cost_a)
+		(*stack_b)->metadata.cost_abs = cost_b;
 	else
 		(*stack_b)->metadata.cost_abs = ft_abs(cost_a) + ft_abs(cost_b);
 }

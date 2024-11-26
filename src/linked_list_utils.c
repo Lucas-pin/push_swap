@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:01:58 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/24 19:06:54 by lucas            ###   ########.fr       */
+/*   Updated: 2024/11/26 20:29:58 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_ps	*ft_ps_new(long content)
 	t_ps	*nodo;
 
 	nodo = NULL;
-	nodo = malloc(sizeof(t_ps));
+	nodo = ft_calloc(1, sizeof(t_ps));
 	if (nodo == NULL)
 		return (NULL);
 	nodo->content = content;

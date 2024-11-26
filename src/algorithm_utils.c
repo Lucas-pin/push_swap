@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:48:40 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/24 19:24:53 by lucas            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:55:56 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	ft_move_stack_a(t_ps **stack_a, t_ps **stack_b)
 {
 	int		i;
-	int		size;
 	int		max_index;
 	t_ps	*aux;
 
-	i = 0;
 	max_index = 0;
+	if (!stack_a || !*stack_a || !stack_b || *stack_b)
+		return ;
 	aux = *stack_a;
-	size = ft_ps_size(aux) + 1;
-	while (--size > 0)
+	i = ft_ps_size(aux) + 1;
+	while (--i > 0)
 	{
 		if (aux->metadata.index > max_index)
 			max_index = aux->metadata.index;

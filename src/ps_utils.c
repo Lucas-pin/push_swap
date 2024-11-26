@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lpin <lpin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:54:22 by lpin              #+#    #+#             */
-/*   Updated: 2024/11/24 19:26:30 by lucas            ###   ########.fr       */
+/*   Updated: 2024/11/26 20:17:39 by lpin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_find_bottom(t_ps **stack)
 {
 	t_ps	*aux;
 
-	aux = *stack;
-	if (!aux)
+	if (!stack || !*stack)
 		return ;
+	aux = *stack;
 	while (aux->tail != 1)
 		aux = aux->next;
 	*stack = aux;
